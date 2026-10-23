@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CodeForge</string>
+    <string name="app_title">‹   CodeForge</string>
+    <string name="action_save">Save</string>
+    <string name="action_run">▶ Run</string>
+    <string name="cd_more_actions">More actions</string>
+    <string name="explorer_title">EXPLORER  /  My Project</string>
+    <string name="action_new">+ New</string>
+    <string name="default_filename">main.py</string>
+    <string name="project_files">PROJECT FILES</string>
+    <string name="breadcrumb_default">project  ›  main.py</string>
+    <string name="default_line_number">1</string>
+    <string name="code_editor_hint"># Write your code here</string>
+    <string name="output_ready">OUTPUT  ·  Ready</string>
+    <string name="action_clear">Clear</string>
+    <string name="welcome_message">Welcome to CodeForge. Your code is saved locally.</string>
+    <string name="status_default">  main  ·  UTF-8  ·  Offline editing</string>
+</resources>

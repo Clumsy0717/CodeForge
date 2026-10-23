@@ -1,0 +1,11 @@
+<resources>
+    <color name="cf_bg">#1E1E1E</color>
+    <color name="cf_panel">#252526</color>
+    <color name="cf_panel_alt">#2D2D30</color>
+    <color name="cf_border">#3C3C3C</color>
+    <color name="cf_text">#D4D4D4</color>
+    <color name="cf_muted">#9DA0A5</color>
+    <color name="cf_blue">#007ACC</color>
+    <color name="cf_green">#4EC9B0</color>
+    <color name="cf_editor">#1E1E1E</color>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cf_bg">#1E1E1E</color>
+    <color name="cf_blue">#007ACC</color>
+    <color name="cf_border">#3C3C3C</color>
+    <color name="cf_editor">#1E1E1E</color>
+    <color name="cf_green">#4EC9B0</color>
+    <color name="cf_muted">#9DA0A5</color>
+    <color name="cf_panel">#252526</color>
+    <color name="cf_panel_alt">#2D2D30</color>
+    <color name="cf_text">#D4D4D4</color>
+    <string name="action_clear">Clear</string>
+    <string name="action_new">+ New</string>
+    <string name="action_run">▶ Run</string>
+    <string name="action_save">Save</string>
+    <string name="app_name">CodeForge</string>
+    <string name="app_title">‹   CodeForge</string>
+    <string name="breadcrumb_default">project  ›  main.py</string>
+    <string name="cd_more_actions">More actions</string>
+    <string name="code_editor_hint"># Write your code here</string>
+    <string name="default_filename">main.py</string>
+    <string name="default_line_number">1</string>
+    <string name="explorer_title">EXPLORER  /  My Project</string>
+    <string name="output_ready">OUTPUT  ·  Ready</string>
+    <string name="project_files">PROJECT FILES</string>
+    <string name="status_default">  main  ·  UTF-8  ·  Offline editing</string>
+    <string name="welcome_message">Welcome to CodeForge. Your code is saved locally.</string>
+    <style name="Theme.CodeForge" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/cf_blue</item>
+        <item name="colorPrimaryVariant">@color/cf_blue</item>
+        <item name="colorSecondary">@color/cf_green</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/cf_panel</item>
+        <item name="android:navigationBarColor">@color/cf_bg</item>
+        <item name="android:windowBackground">@color/cf_bg</item>
+        <item name="android:colorAccent">@color/cf_blue</item>
+    </style>
+</resources>

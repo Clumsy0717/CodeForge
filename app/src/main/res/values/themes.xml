@@ -1,0 +1,13 @@
+<resources>
+    <style name="Theme.CodeForge" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/cf_blue</item>
+        <item name="colorPrimaryVariant">@color/cf_blue</item>
+        <item name="colorSecondary">@color/cf_green</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/cf_panel</item>
+        <item name="android:navigationBarColor">@color/cf_bg</item>
+        <item name="android:windowBackground">@color/cf_bg</item>
+        <item name="android:colorAccent">@color/cf_blue</item>
+    </style>
+</resources>
