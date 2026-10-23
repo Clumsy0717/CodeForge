@@ -10,12 +10,17 @@ color cf_panel
 color cf_panel_alt
 color cf_text
 drawable tab_selected
+id activityBar
+id btnActivityExplorer
+id btnActivitySearch
+id btnActivitySettings
 id btnClearOutput
 id btnExplorer
 id btnMore
 id btnNew
 id btnRun
 id btnSaveTop
+id btnTerminal
 id codeEditor
 id explorerPanel
 id fileList

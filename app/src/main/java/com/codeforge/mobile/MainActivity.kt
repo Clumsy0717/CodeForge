@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var explorerPanel: LinearLayout
     private lateinit var fileAdapter: ArrayAdapter<String>
     private lateinit var outputScroll: ScrollView
+    private var terminalExpanded = true
 
     private lateinit var projectDir: File
     private var currentFile: File? = null
@@ -96,7 +97,35 @@ class MainActivity : AppCompatActivity() {
             output.text = "Output cleared."
             outputLabel.text = "OUTPUT  ·  Ready"
         }
+        findViewById<TextView>(R.id.btnTerminal).setOnClickListener {
+            terminalExpanded = !terminalExpanded
+            outputScroll.visibility = if (terminalExpanded) View.VISIBLE else View.GONE
+            findViewById<TextView>(R.id.tvOutputLabel).text = if (terminalExpanded) "TERMINAL  ·  Output" else "TERMINAL  ·  Hidden"
+        }
+        findViewById<TextView>(R.id.btnActivityExplorer).setOnClickListener { toggleExplorer() }
+        findViewById<TextView>(R.id.btnActivitySearch).setOnClickListener { showSearchDialog() }
+        findViewById<TextView>(R.id.btnActivitySettings).setOnClickListener { showSettings() }
+        // Adapt sidebar and output height to available screen size.
+        val screenWidthDp = resources.configuration.screenWidthDp
+        explorerPanel.layoutParams = explorerPanel.layoutParams.apply {
+            width = dp(if (screenWidthDp < 360) 112 else if (screenWidthDp < 600) 140 else 190)
+        }
+        outputScroll.layoutParams = outputScroll.layoutParams.apply { height = dp(if (resources.configuration.screenHeightDp < 600) 66 else 104) }
         applyEditorSettings()
+        applyTheme()
+    }
+
+    private fun showSearchDialog() {
+        val input = EditText(this).apply { hint = "Find text in current file"; setSingleLine(true) }
+        AlertDialog.Builder(this).setTitle("Find") .setView(input)
+            .setPositiveButton("Find") { _, _ ->
+                val query = input.text.toString()
+                if (query.isNotEmpty()) {
+                    val index = editor.text.toString().indexOf(query, (editor.selectionStart.coerceAtLeast(0)))
+                    if (index >= 0) { editor.requestFocus(); editor.setSelection(index, index + query.length) }
+                    else toast("Text not found")
+                }
+            }.setNegativeButton("Cancel", null).show()
     }
 
     private fun showWelcomeScreen() {
@@ -326,32 +355,48 @@ class MainActivity : AppCompatActivity() {
         editor.addTextChangedListener(object : TextWatcher {
             private var pairStart = -1
             private var typedChar: Char? = null
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+            private var cursorBefore = 0
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { cursorBefore = editor.selectionStart }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 updateLineNumbers(s?.toString().orEmpty())
                 if (!applyingAutoPair && count == 1 && before == 0 && start < (s?.length ?: 0)) {
-                    typedChar = s?.get(start)
-                    pairStart = start
+                    typedChar = s?.get(start); pairStart = start
                 } else { typedChar = null; pairStart = -1 }
                 if (!suppressDirtyFlag) {
-                    isDirty = true
-                    updateTabTitle()
+                    isDirty = true; updateTabTitle()
                     status.text = "  ${currentFile?.let { languageLabel(it) } ?: "Code"}  ·  Unsaved changes"
                 }
             }
             override fun afterTextChanged(s: Editable?) {
+                if (s == null) return
                 val ch = typedChar
                 val close = when (ch) { '(' -> ')'; '[' -> ']'; '{' -> '}'; '"' -> '"'; '\'' -> '\''; '`' -> '`'; else -> null }
-                if (s != null && close != null && pairStart >= 0 && !applyingAutoPair && editor.selectionStart == pairStart + 1) {
+                if (close != null && pairStart >= 0 && !applyingAutoPair && editor.selectionStart == pairStart + 1) {
                     applyingAutoPair = true
                     s.insert(pairStart + 1, close.toString())
                     editor.setSelection(pairStart + 1)
                     applyingAutoPair = false
+                } else if (ch == '>' && !applyingAutoPair && currentFile?.extension?.lowercase() in listOf("html", "htm", "xml", "svg")) {
+                    // Complete an opening HTML/XML tag: <div>| becomes <div></div> with cursor between tags.
+                    val cursor = editor.selectionStart.coerceAtLeast(0).coerceAtMost(s.length)
+                    val beforeCursor = s.substring(0, cursor)
+                    val match = Regex("<([A-Za-z][A-Za-z0-9:-]*)(?:\\s[^<>]*)?>$").find(beforeCursor)
+                    if (match != null && !beforeCursor.endsWith("/>") && match.groupValues[1].lowercase() !in setOf("area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr")) {
+                        val tag = match.groupValues[1]
+                        applyingAutoPair = true
+                        s.insert(cursor, "</$tag>")
+                        editor.setSelection(cursor)
+                        applyingAutoPair = false
+                    }
                 }
                 typedChar = null; pairStart = -1
                 val file = currentFile
-                if (s != null && file != null && !suppressDirtyFlag) {
+                if (file != null && !suppressDirtyFlag) {
+                    // Syntax highlighting must preserve the cursor; otherwise typing quotes can jump to the top.
+                    val selectionStart = editor.selectionStart.coerceAtLeast(0)
+                    val selectionEnd = editor.selectionEnd.coerceAtLeast(selectionStart)
                     SyntaxHighlighter.apply(s, file.extension)
+                    editor.setSelection(selectionStart.coerceAtMost(s.length), selectionEnd.coerceAtMost(s.length))
                 }
             }
         })
@@ -736,6 +781,14 @@ class MainActivity : AppCompatActivity() {
         }
         container.addView(saveBeforeRun)
 
+        label("Editor theme")
+        val themes = arrayOf("Dark", "Light", "Midnight")
+        val themeSpinner = android.widget.Spinner(this).apply {
+            adapter = android.widget.ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item, themes)
+            setSelection(themes.indexOf(preferences.getString("editor_theme", "Dark")).coerceAtLeast(0))
+        }
+        container.addView(themeSpinner)
+
         label("Online runner backend URL")
         val backend = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
@@ -770,8 +823,10 @@ class MainActivity : AppCompatActivity() {
                     .putBoolean("show_line_numbers", lineNumbersToggle.isChecked)
                     .putBoolean("save_before_run", saveBeforeRun.isChecked)
                     .putString("backend_url", url)
+                    .putString("editor_theme", themes[themeSpinner.selectedItemPosition])
                     .apply()
                 applyEditorSettings()
+                applyTheme()
                 toast("Settings saved")
             }
             .show()
@@ -785,6 +840,19 @@ class MainActivity : AppCompatActivity() {
         val showLines = preferences.getBoolean("show_line_numbers", true)
         if (::lineNumbers.isInitialized) lineNumbers.visibility = if (showLines) View.VISIBLE else View.GONE
         editor.setPadding(dp(8), dp(8), dp(8), dp(8))
+    }
+
+    private fun applyTheme() {
+        if (!::editor.isInitialized) return
+        val theme = preferences.getString("editor_theme", "Dark") ?: "Dark"
+        val bg = when (theme) { "Light" -> Color.rgb(250, 250, 250); "Midnight" -> Color.rgb(15, 20, 35); else -> Color.rgb(30, 30, 30) }
+        val fg = if (theme == "Light") Color.rgb(35, 35, 35) else Color.rgb(220, 220, 220)
+        editor.setBackgroundColor(bg); editor.setTextColor(fg)
+        editor.setHintTextColor(if (theme == "Light") Color.GRAY else Color.rgb(120, 130, 145))
+        lineNumbers.setBackgroundColor(bg)
+        lineNumbers.setTextColor(if (theme == "Light") Color.GRAY else Color.rgb(106, 106, 106))
+        output.setBackgroundColor(if (theme == "Light") Color.WHITE else bg)
+        output.setTextColor(if (theme == "Light") Color.rgb(20, 120, 75) else Color.rgb(78, 220, 170))
     }
 
     private fun testBackendConnection(baseUrl: String) {

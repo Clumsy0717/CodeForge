@@ -117,6 +117,19 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/activityBar"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="top|center_horizontal"
+            android:background="@color/cf_panel_alt">
+            <TextView android:id="@+id/btnActivityExplorer" android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center" android:text="▤" android:textSize="22sp" android:textColor="@color/cf_text" android:contentDescription="Explorer" />
+            <TextView android:id="@+id/btnActivitySearch" android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center" android:text="⌕" android:textSize="26sp" android:textColor="@color/cf_text" android:contentDescription="Search" />
+            <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+            <TextView android:id="@+id/btnActivitySettings" android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center" android:text="⚙" android:textSize="21sp" android:textColor="@color/cf_text" android:contentDescription="Settings" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/explorerPanel"
             android:layout_width="156dp"
             android:layout_height="match_parent"
@@ -200,7 +213,6 @@
                         android:id="@+id/codeEditor"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:minWidth="260dp"
                         android:gravity="top|start"
                         android:padding="10dp"
                         android:background="@android:color/transparent"
@@ -238,6 +250,15 @@
             android:textColor="@color/cf_text"
             android:textSize="11sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnTerminal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Terminal ▾"
+            android:textColor="@color/cf_text"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/btnClearOutput"

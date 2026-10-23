@@ -3082,6 +3082,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_text
 id actions
+id activityBar
 id activity_chooser_view_content
 id add
 id alertTitle
@@ -3104,12 +3105,16 @@ id beginning
 id blocking
 id bottom
 id bounce
+id btnActivityExplorer
+id btnActivitySearch
+id btnActivitySettings
 id btnClearOutput
 id btnExplorer
 id btnMore
 id btnNew
 id btnRun
 id btnSaveTop
+id btnTerminal
 id buttonPanel
 id cancel_button
 id center
