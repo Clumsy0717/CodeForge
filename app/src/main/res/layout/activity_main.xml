@@ -25,15 +25,6 @@
             android:textStyle="bold"
             android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/btnExplorer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="Toggle Explorer sidebar"
-            android:src="@android:drawable/ic_menu_sort_by_size"
-            android:backgroundTint="@color/cf_panel"
-            app:tint="@color/cf_text" />
-
         <TextView
             android:id="@+id/btnSaveTop"
             android:layout_width="wrap_content"

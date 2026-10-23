@@ -87,10 +87,9 @@ class MainActivity : AppCompatActivity() {
         refreshFiles()
         showWelcomeScreen()
 
-        findViewById<ImageButton>(R.id.btnExplorer).setOnClickListener { toggleExplorer() }
         explorerPanel.visibility = if (preferences.getBoolean("explorer_visible", true)) View.VISIBLE else View.GONE
         findViewById<TextView>(R.id.btnSaveTop).setOnClickListener { saveCurrentFile() }
-        findViewById<TextView>(R.id.btnNew).setOnClickListener { showCreateFileDialog() }
+        findViewById<TextView>(R.id.btnNew).setOnClickListener { showNewItemMenu() }
         findViewById<Button>(R.id.btnRun).setOnClickListener { runCurrentFile() }
         findViewById<ImageButton>(R.id.btnMore).setOnClickListener { showMoreMenu() }
         findViewById<TextView>(R.id.btnClearOutput).setOnClickListener {
@@ -370,6 +369,21 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 if (s == null) return
                 val ch = typedChar
+                // Emmet-style HTML starter: typing ! on an otherwise empty line expands to a full document.
+                if (ch == '!' && currentFile?.extension?.lowercase() in listOf("html", "htm") && !applyingAutoPair) {
+                    val cursor = editor.selectionStart.coerceIn(0, s.length)
+                    val lineStart = s.lastIndexOf("\n", (cursor - 1).coerceAtLeast(0)).let { if (it < 0) 0 else it + 1 }
+                    val lineEnd = s.indexOf("\n", cursor).let { if (it < 0) s.length else it }
+                    if (s.substring(lineStart, lineEnd).trim() == "!") {
+                        val template = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Document</title>\n</head>\n<body>\n    \n</body>\n</html>"
+                        applyingAutoPair = true
+                        s.replace(lineStart, lineEnd, template)
+                        editor.setSelection((template.indexOf("    \n") + 5).coerceIn(0, s.length))
+                        applyingAutoPair = false
+                        typedChar = null; pairStart = -1
+                        return
+                    }
+                }
                 val close = when (ch) { '(' -> ')'; '[' -> ']'; '{' -> '}'; '"' -> '"'; '\'' -> '\''; '`' -> '`'; else -> null }
                 if (close != null && pairStart >= 0 && !applyingAutoPair && editor.selectionStart == pairStart + 1) {
                     applyingAutoPair = true
@@ -410,7 +424,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupFileList() {
         refreshFiles()
         fileAdapter = object : ArrayAdapter<String>(
-            this, android.R.layout.simple_list_item_1, files.map { it.relativeTo(projectDir).path }
+            this, android.R.layout.simple_list_item_1, files.map { displayFilePath(it) }
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val row = super.getView(position, convertView, parent)
@@ -441,6 +455,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun displayFilePath(file: File): String {
+        val relative = file.relativeTo(projectDir).path.replace(File.separatorChar, '/')
+        val depth = relative.count { it == '/' }
+        return (if (depth > 0) "  ".repeat(depth) + "↳ " else "") + relative.substringAfterLast('/')
+    }
+
     private fun refreshFiles() {
         files.clear()
         fun collect(dir: File) {
@@ -454,7 +474,7 @@ class MainActivity : AppCompatActivity() {
         files.sortBy { it.relativeTo(projectDir).path.lowercase() }
         if (::fileAdapter.isInitialized) {
             fileAdapter.clear()
-            fileAdapter.addAll(files.map { it.relativeTo(projectDir).path })
+            fileAdapter.addAll(files.map { displayFilePath(it) })
             fileAdapter.notifyDataSetChanged()
         }
     }
@@ -536,21 +556,58 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showNewItemMenu() {
+        AlertDialog.Builder(this)
+            .setTitle("Create in Workspace")
+            .setItems(arrayOf("New File", "New Folder")) { _, which ->
+                if (which == 0) showCreateFileDialog() else showCreateFolderDialog()
+            }
+            .show()
+    }
+
+    private fun showCreateFolderDialog() {
+        val input = EditText(this).apply {
+            hint = "assets/images"
+            inputType = InputType.TYPE_CLASS_TEXT
+            setSingleLine(true)
+        }
+        AlertDialog.Builder(this)
+            .setTitle("New folder")
+            .setMessage("Enter a folder name or relative path, such as css or images/icons.")
+            .setView(input)
+            .setNegativeButton("Cancel", null)
+            .setPositiveButton("Create") { _, _ ->
+                val name = input.text.toString().trim().trim('/')
+                val parts = name.split('/')
+                if (parts.isEmpty() || parts.any { !isSafeFileName(it) }) {
+                    toast("Use a simple folder name, like assets/images")
+                    return@setPositiveButton
+                }
+                val folder = File(projectDir, name)
+                if (folder.exists()) toast("That folder already exists.")
+                else if (folder.mkdirs()) {
+                    refreshFiles()
+                    toast("Folder created")
+                } else toast("Couldn't create folder.")
+            }.show()
+    }
+
     private fun showCreateFileDialog() {
         val input = EditText(this).apply {
-            hint = "filename.py"
+            hint = "src/main.py"
             inputType = InputType.TYPE_CLASS_TEXT
             setSingleLine(true)
         }
         AlertDialog.Builder(this)
             .setTitle("New file")
-            .setMessage("Enter a file name with its extension.")
+            .setMessage("Enter a file name or relative path, such as css/style.css.")
             .setView(input)
             .setNegativeButton("Cancel", null)
             .setPositiveButton("Create") { _, _ ->
                 val name = input.text.toString().trim()
-                if (!isSafeFileName(name)) {
-                    toast("Use a simple file name, like main.py")
+                val parts = name.split('/')
+                if (name.startsWith("/") || name.contains("\\") || parts.isEmpty() || parts.any { !isSafeFileName(it) }) {
+                    toast("Use a relative path, like css/style.css")
                     return@setPositiveButton
                 }
                 val file = File(projectDir, name)
@@ -558,6 +615,7 @@ class MainActivity : AppCompatActivity() {
                     toast("That file already exists.")
                 } else {
                     try {
+                        file.parentFile?.mkdirs()
                         file.createNewFile()
                         refreshFiles()
                         openFile(file)

@@ -3109,7 +3109,6 @@ id btnActivityExplorer
 id btnActivitySearch
 id btnActivitySettings
 id btnClearOutput
-id btnExplorer
 id btnMore
 id btnNew
 id btnRun
