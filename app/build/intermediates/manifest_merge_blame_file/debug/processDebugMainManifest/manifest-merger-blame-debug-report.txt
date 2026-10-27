@@ -9,136 +9,136 @@
 9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:2:5-67
-11-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:2:22-64
+11-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:2:5-67
+11-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:2:22-64
 12
 13    <permission
-13-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+13-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
 14        android:name="com.codeforge.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-14-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+14-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
 15        android:protectionLevel="signature" />
-15-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+15-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
 16
 17    <uses-permission android:name="com.codeforge.mobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-17-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
-17-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+17-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
 18
 19    <application
-19-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:3:5-27:19
+19-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:3:5-27:19
 20        android:allowBackup="true"
-20-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:4:9-35
+20-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:4:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.15.0] C:\Users\PC\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+21-->[androidx.core:core:1.15.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\01bde58949c4297a43608f7eba3d7752\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 22        android:debuggable="true"
 23        android:extractNativeLibs="false"
 24        android:label="CodeForge"
-24-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:5:9-34
+24-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:5:9-34
 25        android:supportsRtl="true"
-25-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:8:9-35
+25-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:8:9-35
 26        android:testOnly="true"
 27        android:theme="@style/Theme.CodeForge"
-27-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:6:9-47
+27-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:6:9-47
 28        android:usesCleartextTraffic="true" >
-28-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:7:9-44
+28-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:7:9-44
 29        <activity
-29-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:9:9-17:20
+29-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:9:9-17:20
 30            android:name="com.codeforge.mobile.MainActivity"
-30-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:10:13-41
+30-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:10:13-41
 31            android:configChanges="orientation|screenSize|keyboardHidden"
-31-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:11:13-74
+31-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:11:13-74
 32            android:exported="true" >
-32-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:12:13-36
+32-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:12:13-36
 33            <intent-filter>
-33-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:13:13-16:29
+33-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:13:13-16:29
 34                <action android:name="android.intent.action.MAIN" />
-34-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:14:17-69
-34-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:14:25-66
+34-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:14:17-69
+34-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:14:25-66
 35
 36                <category android:name="android.intent.category.LAUNCHER" />
-36-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:15:17-77
-36-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:15:27-74
+36-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:15:17-77
+36-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:15:27-74
 37            </intent-filter>
 38        </activity>
 39
 40        <provider
 41            android:name="androidx.core.content.FileProvider"
-41-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:19:13-62
+41-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:19:13-62
 42            android:authorities="com.codeforge.mobile.fileprovider"
-42-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:20:13-64
+42-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:20:13-64
 43            android:exported="false"
-43-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:21:13-37
+43-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:21:13-37
 44            android:grantUriPermissions="true" >
-44-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:22:13-47
+44-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:22:13-47
 45            <meta-data
-45-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:23:13-25:54
+45-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:23:13-25:54
 46                android:name="android.support.FILE_PROVIDER_PATHS"
-46-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:24:17-67
+46-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:24:17-67
 47                android:resource="@xml/file_paths" />
-47-->C:\Users\PC\CodeForge\app\src\main\AndroidManifest.xml:25:17-51
+47-->C:\Users\Clumsy\Downloads\CodeForge-Syntax-Indent-WebLinks\CodeForge-Fixed-With-Settings\CodeForge-Judge0-Integrated\CodeForge\app\src\main\AndroidManifest.xml:25:17-51
 48        </provider>
 49        <provider
-49-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+49-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 50            android:name="androidx.startup.InitializationProvider"
-50-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+50-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
 51            android:authorities="com.codeforge.mobile.androidx-startup"
-51-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+51-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 52            android:exported="false" >
-52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
 53            <meta-data
-53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 54                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 55                android:value="androidx.startup" />
-55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\PC\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Clumsy\.gradle\caches\8.9\transforms\6740e38f802b105dcaf042c6ec87990b\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 56            <meta-data
-56-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\PC\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+56-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Clumsy\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
 57                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-57-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\PC\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+57-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Clumsy\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
 58                android:value="androidx.startup" />
-58-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\PC\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+58-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Clumsy\.gradle\caches\8.9\transforms\65c706d083ac038031fc20b1af25ee25\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
 59            <meta-data
-59-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+59-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
 60                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-60-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+60-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
 61                android:value="androidx.startup" />
-61-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+61-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
 62        </provider>
 63
 64        <receiver
-64-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+64-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
 65            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-65-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+65-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
 66            android:directBootAware="false"
-66-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+66-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
 67            android:enabled="true"
-67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
 68            android:exported="true"
-68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
 69            android:permission="android.permission.DUMP" >
-69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
 70            <intent-filter>
-70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
 71                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
 72            </intent-filter>
 73            <intent-filter>
-73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
 74                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
 75            </intent-filter>
 76            <intent-filter>
-76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
 77                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
 78            </intent-filter>
 79            <intent-filter>
-79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
 80                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\PC\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Clumsy\.gradle\caches\8.9\transforms\c6bbb8fcddf47f43ccf53af991da2717\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
 81            </intent-filter>
 82        </receiver>
 83    </application>

@@ -10,6 +10,7 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
+import android.view.KeyEvent
 import android.view.ViewGroup
 import android.view.Gravity
 import android.graphics.Color
@@ -370,6 +371,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupEditor() {
         editor.typeface = Typeface.MONOSPACE
+        // Tab inserts indentation into the editor instead of moving focus to another control.
+        editor.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_TAB && event.action == KeyEvent.ACTION_DOWN) {
+                val start = editor.selectionStart.coerceAtLeast(0)
+                val end = editor.selectionEnd.coerceAtLeast(start)
+                val size = preferences.getInt("indent_size", 4).coerceIn(1, 8)
+                val indent = " ".repeat(size)
+                editor.text.replace(start, end, indent)
+                editor.setSelection(start + indent.length)
+                true
+            } else false
+        }
         editor.addTextChangedListener(object : TextWatcher {
             private var pairStart = -1
             private var typedChar: Char? = null
@@ -382,7 +395,7 @@ class MainActivity : AppCompatActivity() {
                 } else { typedChar = null; pairStart = -1 }
                 if (!suppressDirtyFlag) {
                     isDirty = true; updateTabTitle()
-                    status.text = "  ${currentFile?.let { languageLabel(it) } ?: "Code"}  ·  ${s?.toString()?.lines()?.size ?: 1} lines  ·  Unsaved changes"
+                    status.text = "  SYNTAX: ${currentFile?.let { languageLabel(it) } ?: "Code"}  ·  ${s?.toString()?.lines()?.size ?: 1} lines  ·  Unsaved changes"
                 }
             }
             override fun afterTextChanged(s: Editable?) {
@@ -568,7 +581,7 @@ class MainActivity : AppCompatActivity() {
             if (!openTabs.contains(file)) openTabs.add(file)
             refreshTabs()
             breadcrumb.text = "project  ›  ${file.relativeTo(projectDir).path}"
-            status.text = "  ${languageLabel(file)}  ·  ${editor.text.lines().size} lines  ·  UTF-8"
+            status.text = "  SYNTAX: ${languageLabel(file)}  ·  ${editor.text.lines().size} lines  ·  UTF-8"
             outputLabel.text = "OUTPUT  ·  Opened ${file.name}"
             output.text = "Opened ${file.name}. Changes stay on this device until you choose to run remotely."
             updateLineNumbers(editor.text.toString())
@@ -721,32 +734,48 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun previewWebFile(file: File) {
-        // Only HTML opens in an external browser. CSS and JS are assets, not entry points.
+        // HTML is the entry point; load it from its real workspace path so relative CSS,
+        // JavaScript, image, and nested-folder links resolve correctly.
         if (!file.extension.equals("html", true) && !file.extension.equals("htm", true)) {
-            outputLabel.text = "OUTPUT  ·  Open HTML in browser"
-            output.text = "CSS and JavaScript are support files. Open index.html to view the website in your browser."
-            toast("Open an .html file to launch the browser.")
+            outputLabel.text = "OUTPUT  ·  Open HTML in preview"
+            output.text = "CSS and JavaScript are support files. Open an .html file to preview the website with its linked assets."
+            toast("Open an .html file to preview the website.")
             return
         }
         if (!saveCurrentFile(showToast = false)) return
         try {
-            val contentUri = FileProvider.getUriForFile(
-                this,
-                "${applicationContext.packageName}.fileprovider",
-                file
-            )
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                setDataAndType(contentUri, "text/html")
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            val webView = WebView(this).apply {
+                settings.javaScriptEnabled = true
+                settings.domStorageEnabled = true
+                settings.allowFileAccess = true
+                settings.allowContentAccess = true
+                settings.allowFileAccessFromFileURLs = true
+                settings.allowUniversalAccessFromFileURLs = false
+                setBackgroundColor(Color.rgb(255, 255, 255))
+                loadUrl("file://${file.absolutePath}")
             }
-            startActivity(Intent.createChooser(intent, "Open HTML with"))
-            outputLabel.text = "OUTPUT  ·  Browser launched"
-            output.text = "Opened ${file.name} in an external app. For large websites with linked CSS, JavaScript, images, or folders, use a local/deployed web server so the browser can load every asset."
-            status.text = "  Browser launched  ·  ${file.name}"
+            val dialog = AlertDialog.Builder(this)
+                .setTitle("Preview · ${file.name}")
+                .setView(webView)
+                .setPositiveButton("Close", null)
+                .setNeutralButton("Open externally") { _, _ ->
+                    try {
+                        val uri = FileProvider.getUriForFile(this, "${applicationContext.packageName}.fileprovider", file)
+                        startActivity(Intent.createChooser(Intent(Intent.ACTION_VIEW).apply {
+                            setDataAndType(uri, "text/html")
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }, "Open HTML with"))
+                    } catch (_: Exception) { toast("Couldn't open HTML externally.") }
+                }
+                .create()
+            dialog.setOnDismissListener { webView.destroy() }
+            dialog.show()
+            outputLabel.text = "OUTPUT  ·  HTML preview"
+            output.text = "Previewing ${file.name}. Relative links to CSS, JavaScript, images, and nested assets load from the workspace folder."
+            status.text = "  HTML Preview  ·  ${file.relativeTo(projectDir).path}"
         } catch (e: Exception) {
-            outputLabel.text = "OUTPUT  ·  Browser could not open file"
-            output.text = "No app could open this HTML file, or the browser rejected the local file URI. ${e.localizedMessage ?: "Try another browser."}"
-            toast("Couldn't open HTML in browser.")
+            outputLabel.text = "OUTPUT  ·  Preview failed"
+            output.text = "Couldn't preview HTML: ${e.localizedMessage ?: "Unknown error"}"
         }
     }
 
